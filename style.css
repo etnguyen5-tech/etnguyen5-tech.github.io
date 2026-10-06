@@ -1,3 +1,6 @@
+/* shared styles for the whole site, no inline css SP */
+
+/* reset removes default spacing, so spacing gets added back below SP */
 * {
   margin: 0;
   padding: 0;
@@ -9,31 +12,58 @@ body {
   background: linear-gradient(180deg, #ffe4ec 0%, #ffffff 100%);
   background-attachment: fixed;
   color: #4a1c2e;
-  max-width: 500px;
+  max-width: 700px;
   margin: 0 auto;
-  padding: 60px 20px;
+  padding: 40px 20px;
   min-height: 100vh;
+  line-height: 1.6;
 }
 
-h1 {
-  font-size: 1.6rem;
-  margin-bottom: 4px;
+nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-bottom: 40px;
+}
+
+a {
+  color: #880e4f;
+}
+
+/* hover + keyboard focus color for accessibility SP */
+a:hover,
+a:focus {
   color: #c2185b;
 }
 
+/* Page title SP */
+h1 {
+  font-size: 1.8rem;
+  margin-bottom: 16px;
+  color: #c2185b;
+}
+
+/* Section headings with space above separates sections SP */
 h2 {
   font-size: 0.9rem;
   color: #e91e63;
   text-transform: uppercase;
   letter-spacing: 0.5px;
-  margin-bottom: 16px;
   font-weight: 500;
+  margin-top: 32px;
+  margin-bottom: 16px;
+}
+
+/* Paragraphs: space between them so text doesn't run together SP */
+p {
+  margin-bottom: 12px;
 }
 
 ul {
   list-style: none;
 }
 
+/* list items show up as cards SP */
 li {
   background: rgba(255, 255, 255, 0.85);
   padding: 12px 16px;
@@ -43,10 +73,3 @@ li {
   font-size: 0.95rem;
   color: #880e4f;
 }
-
-nav {
-  display: flex;
-  gap: 16px;
-  margin-bottom: 32px;
-}
-
