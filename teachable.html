@@ -20,25 +20,27 @@
   <!-- our new page -->
   <h1>Teachable Machine: Hand Gesture Recognizer</h1>
   <!-- intro  -->
-  <p>We've recently noticed that Zoom and other live video apps have been rolling out gesture-based reactions to use in tandem with the reaction buttons themselves. Use cases for gestures are wide ranging, from ASL, to VR/MR interactions with augmented interfaces, to human-robot interaction, and even everyday integrations in smart home and car systems, like spinning your finger to adjust the volume.</p>
+  <p>We've recently noticed that Zoom and other live video apps have been rolling out gesture-based reactions to use in tangent with the reaction buttons themselves. Use cases for gestures are wide ranging, from ASL, to VR/MR interactions with augmented interfaces, to human-robot interaction, and even everyday integrations in smart home and car systems, like spinning your finger to adjust the volume.</p>
   <p>To better understand how gestures are interpreted by AI, we decided to train an image classifier using Google's Teachable Machine, as demoed by The Coding Train.</p>
 
   <!-- what our model classifies and where our data came from SP-->
   <h2>Project Scope</h2>
-    <p>The scope of our project includes four common hand gestures: thumbs up, thumbs down, peace sign, and open palm (raised hand). We also added a "no hand" class, since the model always has to pick one of its classes, so without it, it would guess a gesture even when no one is showing one.
+    <p>The scope of our project includes four common hand gestures - thumbs up, thumbs down, peace sign, and open palm (raised hand). We also added a "no hand" class, since the model needs to pick one of its classes and we want to minimize false positives to certain gestures.
     <br>
-    Each of us took 100 photos of ourselves on our own webcams (20 per class), so our dataset is 300 original photos total. To try it out, click allow camera access and show one of the gestures!</p>
+    Each of us took 100 photos of ourselves on our own (20 per class x 5 classes), so our dataset is 300 original photos total. 
+    <br> 
+    To try it out, click allow camera access and show one of the gestures (👍 👎 ✌️ ✋) </p>
   </ul>
 
 <h2>What We're Curious About</h2>
-    <p>Something we're curious about is how lighting and the blurred backgrounds that are common on Zoom might affect how well different people are recognized. If a gesture works in a bright room but not in a dim one, or the model gets confused when the background is blurred, then some people could have a harder time being "seen" by the technology.</p>
+    <p>Something we're curious about is how lighting and the blurred backgrounds that are common on video calls might affect how well different people are recognized when utilizing such technology. If a gesture works in a bright room but not in a dim one, or the model does not function as expected when the background is blurred, then some people could have a harder time being recognized by the technology.</p>
   </ul>
   <!-- links to our code and dataset, as required SP -->
   <h2>References</h2>
   <p><a href="https://github.com/etnguyen5-tech/etnguyen5-tech.github.io">our code</a></p>
   <p><a href="https://github.com/etnguyen5-tech/etnguyen5-tech.github.io/tree/main/data">our dataset</a></p>
 
-  <!-- used the code by codingtrain-->
+  <!-- used the code by codingtrain - ref https://thecodingtrain.com/tracks/teachable-machine/teachable-machine/1-image-classificationLinks to an external site.-->
   <script>
     // The video
     let video;
