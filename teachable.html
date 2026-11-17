@@ -32,8 +32,14 @@
     To try it out, click allow camera access and show one of the gestures (👍 👎 ✌️ ✋) </p>
   </ul>
 
-<h2>What We're Curious About</h2>
-    <p>Something we're curious about is how lighting and the blurred backgrounds that are common on video calls might affect how well different people are recognized when utilizing such technology. If a gesture works in a bright room but not in a dim one, or the model does not function as expected when the background is blurred, then some people could have a harder time being recognized by the technology.</p>
+  <!-- what we noticed after training SP -->
+  <h2>Initial Findings</h2>
+  <ul class="plain">
+    <li>After training our model, we noticed that peace is overly recognized. It's almost the default, while the other gestures require a bit of moving around to be recognized.
+    <br>
+    The no hand class also doesn't work unless our torso is farther back from our computer. This could be due to not only our hand positioning being close or far, but also our body's distance from the computer impacting the data.
+    <br>
+    We're also curious how lighting and the blurred backgrounds that are typically on Zoom can affect different people's ability to be recognized.</li>
   </ul>
   <!-- links to our code and dataset, as required SP -->
   <h2>References</h2>
