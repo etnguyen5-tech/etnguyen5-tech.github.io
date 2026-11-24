@@ -23,9 +23,6 @@
   <p>We've recently noticed that Zoom and other live video apps have been rolling out gesture-based reactions to use in tangent with the reaction buttons themselves. Use cases for gestures are wide ranging, from ASL, to VR/MR interactions with augmented interfaces, to human-robot interaction, and even everyday integrations in smart home and car systems, like spinning your finger to adjust the volume.</p>
   <p>To better understand how gestures are interpreted by AI, we decided to train an image classifier using Google's Teachable Machine, as demoed by The Coding Train.</p>
 
-  <!-- moved the model up so visitors see what the camera is for, based on peer feedback SP -->
-  <h2>Try It</h2>
-  <div id="sketch-holder"></div>
   <!-- what our model classifies and where our data came from SP-->
   <h2>Project Scope</h2>
     <p>The scope of our project includes four common hand gestures - thumbs up, thumbs down, peace sign, and open palm (raised hand). We also added a "no hand" class, since the model needs to pick one of its classes and we want to minimize false positives to certain gestures.
@@ -49,6 +46,20 @@
   <p><a href="https://github.com/etnguyen5-tech/etnguyen5-tech.github.io">our code</a></p>
   <p><a href="https://github.com/etnguyen5-tech/etnguyen5-tech.github.io/tree/main/data">our dataset</a></p>
 
+<!-- Project statement section, a way for our group to reflect upon the work we've done in this course and tie it into this cumulative project. We thought about how code and power are intertwined and applied our knowledge to a reflection of our teachable machine. AP -->
+<h2>Project Statement</h2>
+<ul class="plain">
+  <li>
+    Our group was interested in seeing how a machine could differentiate between different hand gestures, especially because of how integrated this is becoming in our technology. For example, on Zoom you can show a reaction by physically making the gesture instead of clicking a reaction button. Apple’s Facetime also added in a new feature in the past few years in which holding specific hand gestures up in front of the camera triggers effects on the screen that correspond with your gesture. The application Snapchat also has similar technology for recognizing hand or facial gestures for filters; the most popular example of this is likely the dog filter, one for which you need to open your mouth to activate the dog’s tongue! Gesture recognition is also incorporated into other products like virtual reality technology and our phones.
+    <br><br>
+    We wanted to experiment with this technology using Google’s Teachable Machine and see how our machine development process affected how the machine worked to recognize different gestures. We each took 100 original photos of ourselves, so there were a total of 300 images for us to train our machine with. Our images were divided up into five classes: thumbs up, thumbs down, peace sign, open palm, and no hand. Each of our three group members took 20 images per class, so each class had 60 data points. Something we kept in mind was to not take 20 consecutive pictures in the exact same spot for each gesture. We didn’t want the data sets to be repetitive, so we made sure to change our positioning in each of the images we took of ourselves. Sometimes we held our hands close to the camera, other times further away or close to an edge of the frame. We also made sure to take photos with and without our faces in the background. The three different group members’ contributions made it so that the data set had images from people with different physical appearances with different background environments. We wanted to have these variations in order to minimize algorithmic bias as much as possible. Joy Buolamwini’s discussion of her concept “coded gaze” in Unmasking AI provided us with key ideas that helped develop our general understanding of the role of bias in technology. She talked about how Shirley cards were used to calibrate cameras; because they were based on lighter skin tones, it was harder to accurately, if at all, recognize darker skin tones. It is interesting to see how photography bias has been persistent for decades, and it hasn’t just been an issue in recent years with the rise of AI and other advanced technology.
+    <br><br>
+    Our choice to divide the test into five classes heavily reflects on Buolamwini’s thoughts on classification. Our gestures were ones that are already easily recognizable and had set meanings. We included the no hand group as a baseline to avoid triggering a gesture detection when someone is just sitting in front of their computer, not holding up a hand gesture. It’s important to remember that other factors, like health conditions, may affect the way in which people hold up their gestures, which could lead to inaccuracy in detection. This is something to note when developing more advanced versions of this technology. We also hadn’t accounted for other gestures, like if someone is sitting in front of their computer with their hand in the frame but not necessarily in one of the other four classes we tested. Our machine is taught to classify this image as just one of the five classes we labeled, so expanding that aspect in the future would improve the technology. Even as the builders, we can say that there was bias involved when producing this machine since we weren’t able to be more inclusive of diverse physical abilities and appearances, hence why we feel it is important to acknowledge these limitations.
+    <br><br>
+    After training and testing our machine, we noticed that the peace sign was recognized significantly more frequently than the other gestures, seeming as if it was the default predicted class. The no hand class was recognized more often when we were sitting further away from the camera. We were focused on positioning the hand gestures in different ways that we didn’t include a more diverse data set, maybe with photos of us further away from the computer screen. Our machine was fed an equal amount of images per class (60), but it still seemed to highly favor certain labels over others. When our machine was unable to recognize our hand gesture, we kept moving our hands around until it became recognizable. This reminded us of how in the “White Supremacy and AI” article, Ruha Benjamin talked about code-switching, specifically how educational avatars used African American Vernacular English to teach Black children, yet told them to use standard English when presenting. It’s frustrating to see the expectation that some people have for others– often the minority–to change the way they communicate without questioning who determined what the standard is in the first place – often the majority. This is also reminiscent of Buolamwini’s experience of having to wear a white mask on top of her darker skin for the software to recognize her face. In our project, the three of us group members got to decide what each gesture looked like since we were the ones taking and inputting the images into the machine. If someone keeps trying different angles to get the machine to recognize their hand gesture, that issue can likely be alluded to the limitations of our training data rather than a user error. We should keep any issues that arise in mind in order to make adjustments to our machine and data set of images to make it more inclusive and accurate. Three hundred images from three people provide a great foundation for building a teachable machine, but it is still a highly limited data set that leads to a lower representation of potential users of our machine. One of our biggest takeaways from the book Unmasking AI, this project, and the course LIS 500 is that even when people are consciously trying to minimize algorithmic bias, there are often limitations that are overlooked because of our differing individual experiences and abilities. An incorrect emoji popping up on the screen of our machine may not be relatively harmful, but a parallel situation that includes someone with a physical disability trying to control a device could be. We think it is crucial for people to think more inclusively about how people not in the training data might use the technology being developed. 
+  </li>
+</ul>
+
 <!-- test video for teachable machine! the machine had trouble identifying thumbs up (kept saying thumbs down), but the other gestures had better accuracy. AP -->
   <h2>Teachable Machine Test</h2>
   <video width="640" height="360" controls>
@@ -57,12 +68,12 @@
 
   <!-- used the code by codingtrain - ref https://thecodingtrain.com/tracks/teachable-machine/teachable-machine/1-image-classificationLinks to an external site.-->
   <!-- adding a header to differentiate the sections, instruct the user to try out the machine AP -->
+  <h2>Try the Machine</h2>
   <script>
     // The video
     let video;
     // For displaying the label
     let label = "waiting...";
-    let confidence = 0;
     // The classifier
     let classifier;
     // UPDATE W OUR MODEL LINK
@@ -74,9 +85,7 @@
     }
 
     function setup() {
-      // puts the webcam in the Try It section instead of the bottom of the page, based on feedback SP
-      let canvas = createCanvas(640, 520);
-      canvas.parent("sketch-holder"); 
+      createCanvas(640, 520);
       // Create the video
       video = createCapture(VIDEO);
       video.hide();
@@ -99,7 +108,7 @@
       textSize(32);
       textAlign(CENTER, CENTER);
       fill(255);
-      text(label + " (" + floor(confidence * 100) + "%)", width / 2, height - 16);
+      text(label, width / 2, height - 16);
 
       // updated to match our class names SP
       let emoji = "➖";
@@ -127,7 +136,6 @@
       }
       // Store the label and classify again!
       label = results[0].label;
-      confidence = results[0].confidence; // added a confidence label to see the flucutation
       classifyVideo();
     }
   </script>
