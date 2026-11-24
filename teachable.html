@@ -23,6 +23,9 @@
   <p>We've recently noticed that Zoom and other live video apps have been rolling out gesture-based reactions to use in tangent with the reaction buttons themselves. Use cases for gestures are wide ranging, from ASL, to VR/MR interactions with augmented interfaces, to human-robot interaction, and even everyday integrations in smart home and car systems, like spinning your finger to adjust the volume.</p>
   <p>To better understand how gestures are interpreted by AI, we decided to train an image classifier using Google's Teachable Machine, as demoed by The Coding Train.</p>
 
+  <!-- moved the model up so visitors see what the camera is for, based on peer feedback SP -->
+  <h2>Try It</h2>
+  <div id="sketch-holder"></div>
   <!-- what our model classifies and where our data came from SP-->
   <h2>Project Scope</h2>
     <p>The scope of our project includes four common hand gestures - thumbs up, thumbs down, peace sign, and open palm (raised hand). We also added a "no hand" class, since the model needs to pick one of its classes and we want to minimize false positives to certain gestures.
@@ -54,12 +57,12 @@
 
   <!-- used the code by codingtrain - ref https://thecodingtrain.com/tracks/teachable-machine/teachable-machine/1-image-classificationLinks to an external site.-->
   <!-- adding a header to differentiate the sections, instruct the user to try out the machine AP -->
-  <h2>Try the Machine</h2>
   <script>
     // The video
     let video;
     // For displaying the label
     let label = "waiting...";
+    let confidence = 0;
     // The classifier
     let classifier;
     // UPDATE W OUR MODEL LINK
@@ -71,7 +74,9 @@
     }
 
     function setup() {
-      createCanvas(640, 520);
+      // puts the webcam in the Try It section instead of the bottom of the page, based on feedback SP
+      let canvas = createCanvas(640, 520);
+      canvas.parent("sketch-holder"); 
       // Create the video
       video = createCapture(VIDEO);
       video.hide();
@@ -94,7 +99,7 @@
       textSize(32);
       textAlign(CENTER, CENTER);
       fill(255);
-      text(label, width / 2, height - 16);
+      text(label + " (" + floor(confidence * 100) + "%)", width / 2, height - 16);
 
       // updated to match our class names SP
       let emoji = "➖";
@@ -122,6 +127,7 @@
       }
       // Store the label and classify again!
       label = results[0].label;
+      confidence = results[0].confidence; // added a confidence label to see the flucutation
       classifyVideo();
     }
   </script>
